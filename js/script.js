@@ -56,12 +56,120 @@ var selectoption10 = false;
 var selectoption11 = false;
 var selectoption12 = false;
 
+var recappx = document.getElementById("recapPrix");
+var recapq = document.getElementById("recapQuantite");
+var recapd = document.getElementById("recapdurée");
+
+var frecapd = document.getElementById("recapDuree");
+var frecapd2 = document.getElementById("recapDuree2");
+
+var prix;
+var qut;
+var durée;
+
+var frecapdlc1 = document.getElementById("recapOption1");
+var frecapdlc2 = document.getElementById("recapOption2");
+var frecapdlc3 = document.getElementById("recapOption3");
+
 
 
 function onLoad(){
     ecrant2.style.display = "none";
     ecrant3.style.display = "none";
     ecrant4.style.display = "none";
+}
+
+
+function prixrécup(){
+    var y;
+
+    if (selectoption1 == true) {y =1}
+    else if (selectoption2 == true) {y =2}
+    else if (selectoption2 == true) {y =3}
+    else if (selectoption2 == true) {y =4}
+    else if (selectoption2 == true) {y =5}
+
+
+    switch (y) {
+        case (1):
+            prix = 1.90;
+            break;
+        case (2):
+            prix = 1.80;
+            break;
+        case (3):
+            prix = 1.70;
+            break;
+        case (4):
+            prix = 1.60;
+            break;
+        case (5):
+            prix = 1.50;
+            break;
+    }
+}
+
+function récupdurée() {
+    var y;
+
+    if (selectoption1 == true) {y =1}
+    else if (selectoption2 == true) {y =2}
+    else if (selectoption2 == true) {y =3}
+    else if (selectoption2 == true) {y =4}
+    else if (selectoption2 == true) {y =5}
+
+
+    switch (y) {
+        case (1):
+            durée = "1 Mois";
+            break;
+        case (2):
+            durée = "3 Mois";
+            break;
+        case (3):
+            urée = "6 Mois";
+            break;
+        case (4):
+            urée = "9 Mois";
+            break;
+        case (5):
+            durée = "1 An";
+            break;
+    }
+}
+
+function récupquant() {
+
+    qut = val;
+
+}
+
+function majecran4() {
+    prixrécup();
+    récupdurée();
+    récupquant();
+
+    recappx.innerText = prix + " €";
+    frecapd2.innerHTML = durée;
+    frecapd.innerHTML = durée;
+    recapq.innerHTML = qut;
+
+    if (selectoption10 == true) {
+        frecapdlc1.style.display = "block";
+        frecapdlc2.style.display = "none";
+        frecapdlc3.style.display = "none";
+    }
+    if (selectoption11 == true) {
+        frecapdlc1.style.display = "none";
+        frecapdlc2.style.display = "block";
+        frecapdlc3.style.display = "none";
+    }
+    if (selectoption12 == true) {
+        frecapdlc1.style.display = "none";
+        frecapdlc2.style.display = "none";
+        frecapdlc3.style.display = "block";
+    }
+    
 }
 
 function modval() {
@@ -278,4 +386,6 @@ function swecrant4() {
     ecrant2.style.display = "none";
     ecrant3.style.display = "none";
     ecrant4.style.display = "block";
+
+    majecran4();
 }
