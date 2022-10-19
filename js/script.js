@@ -39,12 +39,35 @@ var selectoption3 = false;
 var selectoption4 = false;
 var selectoption5 = false;
 
+var nb = document.getElementById("inputNb");
+var val;
+
+nb.addEventListener("click",modval,false);
+
+var option10 = document.getElementById("option10");
+var option11 = document.getElementById("option11");
+var option12 = document.getElementById("option12");
+
+option10.addEventListener("click",optionc10, false);
+option11.addEventListener("click",optionc11, false);
+option12.addEventListener("click",optionc12, false);
+
+var selectoption10 = false;
+var selectoption11 = false;
+var selectoption12 = false;
+
 
 
 function onLoad(){
     ecrant2.style.display = "none";
     ecrant3.style.display = "none";
     ecrant4.style.display = "none";
+}
+
+function modval() {
+    val = nb.value;
+    boutonecran2unlock();
+
 }
 
 function choption1() {
@@ -151,6 +174,74 @@ function optionc4() {
 
 function optionc5() {
     choix(5);
+}
+
+function optionc10() {
+    choix2(10);
+}
+
+function optionc11() {
+    choix2(11);
+}
+
+function optionc12() {
+    choix2(12);
+}
+
+function choix2(choix) {
+
+    if (choix == 10) {
+        if (selectoption12 == true) {choption12();}
+        choption10();
+
+        if (selectoption11 == true) {
+            choption12();
+            choption10();
+            choption11();
+        }
+    }
+
+    if (choix == 11) {
+        if (selectoption12 == true) {choption12();}
+        choption11();
+
+        if (selectoption10 == true) {
+            choption12();
+            choption10();
+            choption11();
+        }
+    }
+
+    if (choix == 12) {
+        if (selectoption10 == true) {choption10();}
+        if (selectoption11 == true) {choption11();}
+        
+        choption12();
+    }
+
+    
+    
+}
+
+function choption10() {
+
+    if (selectoption10 == false) {option10.style.backgroundColor = 'red';selectoption10 = true;}
+    else {option10.style.backgroundColor = 'white';selectoption10 = false;}
+    
+}
+
+function choption11() {
+
+    if (selectoption11 == false) {option11.style.backgroundColor = 'red';selectoption11 = true;}
+    else {option11.style.backgroundColor = 'white';selectoption11 = false;}
+    
+}
+
+function choption12() {
+
+    if (selectoption12 == false) {option12.style.backgroundColor = 'red';selectoption12 = true;}
+    else {option12.style.backgroundColor = 'white';selectoption12 = false;}
+    
 }
 
 function swecrant1() {
