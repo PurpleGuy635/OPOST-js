@@ -5,3 +5,10 @@
 .card {
     cursor:pointer;
 }
+.optionvalide {
+    background-color: red;
+}
+
+.red {
+    background-color: red;
+}
